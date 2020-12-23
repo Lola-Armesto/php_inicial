@@ -4,18 +4,28 @@
 		
 	</head>
 	<body>
-	
+	<?php
+  if(isset($error))
+{
+ ?>
+ <style>
+ input:focus
+ {
+  border:solid red 1px;
+ }
+ </style>
+ <?php
+}
+?>
 	
 		<p>Introduce datos</p>
 		<p>Matricula: <input type="text"  name="matricula" id="matricula" placeholder="Introduce matricula"></p>
 		<p>Marca: <input type="text" name="marca" id="marca" placeholder="Introduce marca"></p>
 		<p>Modelo: <input type="text" name="modelo" id="modelo" placeholder="Introduce modelo"></p>
 		<p>Color: <input type="text" name="color" id="color" placeholder="Introduce color"></p>
-		<p>Precio: <input type="number" name="precio" id="precio" placeholder="Introduce precio"></p>
-			
+		<p>Precio: <input type="number" name="precio" id="precio" placeholder="Introduce precio"></p>	
 		<p><button onclick="enviar_formulario()">Enviar</button></p>
-		
-		
+
 	
 
 		<p id="resultado"></p>
@@ -24,13 +34,10 @@
 		
 		<script type="text/javascript" language="javascript">
 		
-
-		
+	
 		
 		
 		function enviar_formulario(){
-		
-			
 			var matricula = document.getElementById("matricula").value;
 			var marca = document.getElementById("marca").value;
 			var modelo = document.getElementById("modelo").value;
@@ -53,7 +60,6 @@
 				/*aqui si ajax.status es igual al codigo de estado, significa que la peticion se ha enviado correctamente y el readyState ==4 
 				significa que el servidor termino de devolver la respuesta*/ 
 				    var jsonResponse = ajax.responseText;
-					
 					var respuesta=JSON.parse(jsonResponse);
 					console.log(respuesta);
 					genera_tabla(respuesta);
@@ -70,7 +76,7 @@
 					
 		}
 		
-
+function genera_tabla(data) {
 
 		// Obtener la referencia del elemento body
   var body = document.getElementsByTagName("body")[0];
@@ -109,9 +115,6 @@
 		
 		tblheader.appendChild(cabecera);
   // Crea las celdas
-function genera_tabla(data) {
-	
-
   for (var i = 0; i < data.length; i++) {
     // Crea las hileras de la tabla
     var hilera = document.createElement("tr");
@@ -145,7 +148,6 @@ function genera_tabla(data) {
     // agrega la hilera al final de la tabla (al final del elemento tblbody)
     tblBody.appendChild(hilera);
   }
-  
    // posiciona el <thead> debajo del elemento <table>
   tabla.appendChild(tblheader);
   // posiciona el <tbody> debajo del elemento <thead>
@@ -154,8 +156,6 @@ function genera_tabla(data) {
   body.appendChild(tabla);
   // modifica el atributo "border" de la tabla y lo fija a "2";
   tabla.setAttribute("border", "2");
-  
-  return true;
 
 }
 
