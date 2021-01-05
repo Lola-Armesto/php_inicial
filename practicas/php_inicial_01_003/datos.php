@@ -10,14 +10,15 @@ $marca = $_POST['marca'];
 $modelo = $_POST['modelo']; 
 $color = $_POST['color'];
 $precio = $_POST['precio'];
-//Validacion datos en servidor
-/* $aErrores = array();
- $aMensajes = array();
+
+/*//Validacion datos en servidor
+$aErrores = array();
+$aMensajes = array();
  $patron_texto = "/^[a-zA-ZáéíóúÁÉÍÓÚäëïöüÄËÏÖÜàèìòùÀÈÌÒÙ\s][0-9]+$/";
  //primer paso: comprobacion si han llegado los datos del formulario
- if (!empty($_POST)){
+if (!empty($_POST)){
 	 //echo "Formulario recibido: </br>";
-	 print_r($_POST);
+	 //print_r($_POST);
 	 //segundo paso:validar campos
 	
 	 if(isset($_POST['matricula']) && isset($_POST['marca'])&& isset($_POST['modelo'])&& isset($_POST['color'])&& isset($_POST['precio']))
@@ -79,14 +80,14 @@ $precio = $_POST['precio'];
 	 }
 	 else
             {
-                echo "<p>No se han especificado todos los datos requeridos.</p>";
+                //echo "<p>No se han especificado todos los datos requeridos.</p>";
             }
             // Si han habido errores se muestran, sino se mostrán los mensajes
         if( count($aErrores) > 0 )
             {
 			//echo "<p>ERRORES ENCONTRADOS:</p>";
                 // Mostrar los errores:
-               // for( $contador=0; $contador < count($aErrores); $contador++ ){
+               for( $contador=0; $contador < count($aErrores); $contador++ ){
 				// echo " $aErrores[$contador]. <br/>";}
             }
             else
@@ -99,12 +100,11 @@ $precio = $_POST['precio'];
  }
          else
         {
-          //  echo "<p>No se ha enviado el formulario.</p>";
+           //echo "<p>No se ha enviado el formulario.</p>";
         }
-       // echo "<p><a href='index_ejercicio3.html'>Haz clic aquí para volver al formulario</a></p>";
+      // echo "<p><a href='index_ejercicio3.html'>Haz clic aquí para volver al formulario</a></p>";
 
-//echo "$matricula + 'y' + $marca";
- */
+//echo "$matricula + 'y' + $marca";*/
 // Grabando nuevos datos y comprobacion de grabación correcta en BBDD
 $sql="INSERT INTO php_inicial_lola (matricula_coche, marca_coche, modelo_coche, color_coche, precio_coche) VALUES ('".$matricula."','".$marca."','".$modelo."','".$color."','".$precio."')";
 $ej=mysqli_query($conn,$sql);
@@ -123,15 +123,18 @@ while($resultado=mysqli_fetch_array($consulta)){
 	$precio=$resultado['precio_coche'];
 	//echo($matricula.' | '.$marca.' | '.$modelo.' | '.$color.' | '.$precio.' </br>');
 	
-	//$cadenaJSON[]=array("errores"=>$aErrores,"matricula"=>$matricula,"marca"=>$marca,"modelo"=>$modelo,"color"=>$color,"precio"=>$precio);
+	//$cadenaJSONe[]=array("errores"=>$aErrores,"matricula"=>$matricula,"marca"=>$marca,"modelo"=>$modelo,"color"=>$color,"precio"=>$precio);
 	$cadenaJSON[]=array("matricula"=>$matricula,"marca"=>$marca,"modelo"=>$modelo,"color"=>$color,"precio"=>$precio);
 } 
 //Creando JSON
 
 $jsonObj = json_encode($cadenaJSON);
-//echo $jsonObj;
+//$jsone = json_encode($cadenaJSONe);
+echo $jsonObj;
 
-die($jsonObj);
+//echo $jsone;
+
+//die($jsonObj);
 
 // Para crear el archivo JSON
 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+		<link rel="stylesheet" href="../css/estilo.css" type="text/css" media="screen">
+		<script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		
+	</head>
+	<body>
+		<form method ="post" id="formulario" action="icrud.php">
+
+				<p>Nombre : 	<input type = "text" name = "nom" id = "nom" required="required"></p>
+				<p>Apellidos :  <input type = "text" name = "ape" id = "ape" required="required"></p>
+				<p>Direccion :  <input type = "text" name = "dir" id = "dir" required="required"></p>
+				<p>Telefono : 	<input type = "text" name = "tel" id = "tel" required="required"></p>
+				<p>Email : 		<input type = "text" name = "mail" id = "mail" required="required"></p>
+				<p><input type = "submit" value = "INTRODUCE DATOS"></p>
+		
+		</form> 
+
+		<p id="resultado">
+			<table>
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Apellidos</th>
+						<th>Direccion</th>
+						<th>Telefono</th>
+						<th>Email</th>
+					</tr>
+					<tr></tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+
+		
+		</p>
+
+			<p><a href="../index.html">Volver a inicio</p>
+	
+	</body>
+	
+
+
+
+</html>
