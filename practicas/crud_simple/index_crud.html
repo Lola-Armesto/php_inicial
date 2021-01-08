@@ -9,34 +9,44 @@
 	</head>
 	<body>
 		<form method ="post" id="formulario" action="icrud.php">
+		<div id = "create">
+			
 
-				<p>Nombre : 	<input type = "text" name = "nom" id = "nom" required="required"></p>
-				<p>Apellidos :  <input type = "text" name = "ape" id = "ape" required="required"></p>
-				<p>Direccion :  <input type = "text" name = "dir" id = "dir" required="required"></p>
-				<p>Telefono : 	<input type = "text" name = "tel" id = "tel" required="required"></p>
-				<p>Email : 		<input type = "text" name = "mail" id = "mail" required="required"></p>
-				<p><input type = "submit" value = "INTRODUCE DATOS"></p>
-		
+					<p>Nombre : 	<input type = "text" name = "nom" id = "nom" required="required"></p>
+					<p>Apellidos :  <input type = "text" name = "ape" id = "ape" required="required"></p>
+					<p>Direccion :  <input type = "text" name = "dir" id = "dir" required="required"></p>
+					<p>Telefono : 	<input type = "text" name = "tel" id = "tel" required="required"></p>
+					<p>Email : 		<input type = "text" name = "mail" id = "mail" required="required"></p>
+					<p><input type = "submit" value = "INTRODUCE DATOS"></p>
+			
+			
+
+			<p id="resultado">
+				<table>
+					<thead>
+						<tr>
+							<th>Nombre</th>
+							<th>Apellidos</th>
+							<th>Direccion</th>
+							<th>Telefono</th>
+							<th>Email</th>
+						</tr>
+						
+					</thead>
+					<tbody>
+						<tr>
+							<td><?php echo "$nom"; ?></td>
+						</tr>
+					</tbody>
+				</table>
+
+			
+			</p>
+		</div>
+		<div id = "read">
+			
+		</div>	
 		</form> 
-
-		<p id="resultado">
-			<table>
-				<thead>
-					<tr>
-						<th>Nombre</th>
-						<th>Apellidos</th>
-						<th>Direccion</th>
-						<th>Telefono</th>
-						<th>Email</th>
-					</tr>
-					<tr></tr>
-				</thead>
-				<tbody></tbody>
-			</table>
-
-		
-		</p>
-
 			<p><a href="../index.html">Volver a inicio</p>
 	
 	</body>
