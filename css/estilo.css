@@ -1,0 +1,63 @@
+body {
+	background-color:  #daefec ;
+}
+#menu{
+	
+	width:1000px;
+	height:50px;
+	border: solid;
+	color:#6fd113;
+}
+#form{
+	border: solid;
+	width: 600px;
+	height:300px;
+	margin-top:1%;
+	float: left;
+	margin-bottom:5%;
+}
+.parrafo{
+	color:red; 
+	width: 1200px;
+	
+	
+}
+table{
+	margin-top:1%;
+	border:solid;
+	border-color:blue;
+	float:left;
+	
+	width:500px;
+}
+thead{
+	color:blue;
+}
+h2{
+	margin-left:5%;
+	color:blue;
+	float:left;
+	width:30%;
+}
+#navegacion{
+	border-top:10%;
+	width: 90%;
+	height: 200px;
+	
+}
+.seleccion{
+
+	color:blue;
+	float:left;
+	width:100%;
+}
+#create{
+	width: 900px
+	float: left;
+	
+}
+#read{
+	width: 300px;
+	float:left;
+	
+}
