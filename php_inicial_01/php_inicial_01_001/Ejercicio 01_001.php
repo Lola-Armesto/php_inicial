@@ -11,10 +11,10 @@
 include_once("../../dB_conexion/conexion.php");
 // Insertar Datos (Harcodeados)
 $sql="INSERT INTO php_inicial_lola (matricula_coche, marca_coche, modelo_coche, color_coche, precio_coche) VALUES ('1212JJJ','SEAT','TOLEDO','ROJO','10000')";
-if(mysqli_query($conn,$sql)){ echo('DATOS GRABADOS'); }else{ die('No se han grabado los datos. Intentalo de nuevo');}
+if(mysqli_query($db_conn,$sql)){ echo('DATOS GRABADOS'); }else{ die('No se han grabado los datos. Intentalo de nuevo');}
 // Selección Datos Insertados
 $datos = "SELECT * FROM php_inicial_lola";
-$consulta = mysqli_query($conn, $datos);
+$consulta = mysqli_query($db_conn, $datos);
 $resultado = mysqli_fetch_array($consulta);
 while($resultado=mysqli_fetch_array($consulta)){
 	$matricula=$resultado['matricula_coche'];

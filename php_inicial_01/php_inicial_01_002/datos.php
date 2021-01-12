@@ -18,11 +18,11 @@ $color = $_POST['color'];
 $precio = $_POST['precio'];
 // Grabando nuevos datos y comprobacion de grabación correcta en BBDD
 $sql="INSERT INTO php_inicial_lola (matricula_coche, marca_coche, modelo_coche, color_coche, precio_coche) VALUES ('".$matricula."','".$marca."','".$modelo."','".$color."','".$precio."')";
-if(mysqli_query($conn,$sql)){ echo"<h3>DATOS GRABADOS</h3>"; }else{ die('No se han grabado los datos. Intentalo de nuevo');}
+if(mysqli_query($db_conn,$sql)){ echo"<h3>DATOS GRABADOS</h3>"; }else{ die('No se han grabado los datos. Intentalo de nuevo');}
 
 // Listado datos BBDD sin filtro
 $datos = "SELECT * FROM php_inicial_lola";
-$consulta = mysqli_query($conn, $datos);
+$consulta = mysqli_query($db_conn, $datos);
 $resultado = mysqli_fetch_array($consulta);
  WHILE($resultado=mysqli_fetch_array($consulta)){
 	$matricula=$resultado['matricula_coche'];

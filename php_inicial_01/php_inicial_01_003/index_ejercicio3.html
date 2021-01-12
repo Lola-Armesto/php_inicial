@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="../../css/estilo.css" type="text/css" media="screen">
 </head>
 <body>
+<div id="navegacion"></div>
 <p><label><a href="../../index.html">Volver a inicio</a></label></p>
 <div id = "form">
 	<p>Introduce datos</p>
@@ -17,7 +18,7 @@
 </div>
 
 <p id="resultado">Mensaje: <button onclick="clean()">Limpiar</button></p>
-		
+	
 		
 	
 		
@@ -46,8 +47,8 @@
 			/*aqui si ajax.status es igual al codigo de estado, significa que la peticion se ha enviado correctamente y el readyState ==4 
 			significa que el servidor termino de devolver la respuesta*/ 
 				var jsonResponse = ajax.responseText;
-			   // var respuesta = JSON.parse(JSON.stringify(jsonResponse));
-			   var respuesta=JSON.parse(jsonResponse);
+			  //var respuesta = JSON.stringify(jsonResponse);
+			var respuesta=JSON.parse(jsonResponse);
 				console.log(respuesta);
 				genera_tabla(respuesta);
 				
@@ -158,13 +159,13 @@ function genera_tabla(data) {
   // appends <table> into <body>
   body.appendChild(tabla);
   // modifica el atributo "border" de la tabla y lo fija a "2";
- 
+
   tabla.setAttribute("border", "2");
 	
 
 }
 	
-	document.getElementById('resultado').innerHTML = " Datos enviados. Limpia formulario " + "<button onclick='clean()'>Limpiar</button>";
+	//document.getElementById('resultado').innerHTML = " Datos enviados. Limpia formulario " + "<button onclick='clean()'>Limpiar</button>";
 	
 function clean(){
 	document.getElementById("matricula").value = '';

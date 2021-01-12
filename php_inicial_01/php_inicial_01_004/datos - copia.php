@@ -12,11 +12,11 @@ $precio = $_POST['precio'];
 
 // Grabando nuevos datos y comprobacion de grabación correcta en BBDD
 $sql="INSERT INTO php_inicial_lola (matricula_coche, marca_coche, modelo_coche, color_coche, precio_coche) VALUES ('".$matricula."','".$marca."','".$modelo."','".$color."','".$precio."')";
-$ej=mysqli_query($conn,$sql);
+$ej=mysqli_query($db_conn,$sql);
 
 // Listado datos BBDD sin filtro
 $datos = "SELECT * FROM php_inicial_lola";
-$consulta = mysqli_query($conn, $datos);
+$consulta = mysqli_query($db_conn, $datos);
 $resultado = mysqli_fetch_array($consulta);
 $cadenaJSON = array();
 while($resultado=mysqli_fetch_array($consulta)){
