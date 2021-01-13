@@ -3,19 +3,20 @@ body {
 }
 #menu{
 	
-	width:1000px;
+	width:100%;
 	height:50px;
 	border: solid;
 	color:#6fd113;
 }
 #form{
 	border: solid;
-	width: 600px;
+	width: 100%;
 	height:300px;
-	margin-top:1%;
+	
 	float: left;
-	margin-bottom:5%;
+	
 }
+
 .parrafo{
 	color:red; 
 	width: 1200px;
@@ -27,7 +28,6 @@ table{
 	border:solid;
 	border-color:blue;
 	float:left;
-	
 	width:500px;
 }
 thead{
@@ -40,9 +40,9 @@ h2{
 	width:30%;
 }
 #navegacion{
-	border-top:10%;
+	
 	width: 90%;
-	height: 200px;
+	height: 30px;
 	
 }
 .seleccion{
@@ -52,7 +52,7 @@ h2{
 	width:100%;
 }
 #create{
-	width: 900px
+	width: 900px;
 	float: left;
 	
 }
