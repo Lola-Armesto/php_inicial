@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-		<link rel="stylesheet" href="../css/estilo.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="../../css/estilo.css" type="text/css" media="screen">
 		<script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		
@@ -10,14 +10,14 @@
 	<body>
 	
 		<nav id = "menu" >
-			 
+			 	<button><a href="../../index.html">Volver a inicio</a>
 				<button><a href="#create"  id="btn1" onclick="ver('create')">Alta Usuarios</a></button>
-				<button><a href="#read" id="btn2" onclick="ver()">Operaciones en Registros</a></button>
+				<button><a href="#read" id="btn2" onclick="ver('read')">Operaciones en Registros</a></button>
 		
 		</nav>
 	
 		<div id = "create" >
-			<p><u><label style = "color:green;">Alta Usuarios<label></u></p>
+			<p><u><h3 style = "color:green;">Alta Usuarios</h3></u></p>
 			
 			<form method ="post" id="formulario" action="config/icrud.php">
 					<p>Nombre : 	<input type = "text" name = "nom" id = "nom" required="required"></p>
@@ -33,7 +33,7 @@
 		</div>
 		
 		
-		<div id = "read" style="display:inline">
+		<div id = "read" >
 
 			<p><u><h3 style = "color:green;">Operaciones</h3></u></p>
 
@@ -41,61 +41,61 @@
 
 
 		<table style ='border:2px solid black'>
-								<thead >
-									 <tr style = 'border:1px solid black'>
-									 		
-											<th >Nombre</th>
-											<th>Apellidos</th>
-											<th>Direccion</th>
-											<th>Telefono</th>
-											<th>Email</th>
-											<th></th>
-											<th></th>
+				<thead >
+							<tr style = 'border:1px solid black'>
+								
+								<th >Nombre</th>
+								<th>Apellidos</th>
+								<th>Direccion</th>
+								<th>Telefono</th>
+								<th>Email</th>
+								<th></th>
+								<th></th>
 
-									</tr>
-							</thead>
-							<tbody style = 'border:1px solid black'>
+						</tr>
+				</thead>
+				<tbody style = 'border:1px solid black'>
 
-											<?php
-												include_once("../dB_conexion/conexion.php");
-												include_once("tabla.php");
+				<?php
+					include_once("../../dB_conexion/conexion.php");
+					include_once("tabla.php");
 
-														$sqlcom = "SELECT * FROM agenda ";
-														$sqlej = mysqli_query($db_conn,$sqlcom);
-														$sqlres = mysqli_fetch_array($sqlej);
+					$sqlcom = "SELECT * FROM agenda ";
+					$sqlej = mysqli_query($db_conn,$sqlcom);
+					$sqlres = mysqli_fetch_array($sqlej);
 
-														if($sqlres){
-																
-															
-															
-															while($sqlres = mysqli_fetch_array($sqlej)){
-																
-																$cod = $sqlres['id_id'];
-																$nom = $sqlres['nombre_id'];
-																$ape = $sqlres['apellidos_id'];
-																$dir = $sqlres['direccion_id'];
-																$phone = $sqlres['telefono_id'];
-																$mail = $sqlres['email_id'];
-														
-																	echo" <tr style = 'border:1px solid black'>
+					if($sqlres){
+							
+						
+						
+						while($sqlres = mysqli_fetch_array($sqlej)){
+							
+							$cod = $sqlres['id_id'];
+							$nom = $sqlres['nombre_id'];
+							$ape = $sqlres['apellidos_id'];
+							$dir = $sqlres['direccion_id'];
+							$phone = $sqlres['telefono_id'];
+							$mail = $sqlres['email_id'];
+					
+								echo" <tr style = 'border:1px solid black'>
 
-																				<td style = 'border:1px solid black'>".$nom." </td>
-																				<td style = 'border:1px solid black'>".$ape." </td>
-																				<td style = 'border:1px solid black'>".$dir." </td>
-																				<td style = 'border:1px solid black'>".$phone." </td>
-																				<td style = 'border:1px solid black'>".$mail."</td>
-																				<td><a href ='config/ucrud.php?var=$cod'>Modificar</a></td>
-																				<td><a href ='config/dcrud.php?var=$cod'>Eliminar</a></td>
-																			</tr>"; 
-																
-															}
-															
-															
-														}else{ echo "No hay registros";}
+											<td style = 'border:1px solid black'>".$nom." </td>
+											<td style = 'border:1px solid black'>".$ape." </td>
+											<td style = 'border:1px solid black'>".$dir." </td>
+											<td style = 'border:1px solid black'>".$phone." </td>
+											<td style = 'border:1px solid black'>".$mail."</td>
+											<td><a href ='config/ucrud.php?var=$cod'>Modificar</a></td>
+											<td><a href ='config/dcrud.php?var=$cod'>Eliminar</a></td>
+										</tr>"; 
+							
+						}
+								
+								
+						}else{ echo "No hay registros";}
 
-																
-											?>	
-							</tbody>
+									
+				?>	
+				</tbody>
 
 		</table>
 

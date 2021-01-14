@@ -16,16 +16,14 @@
 	<p>Color: <input type="text" name="color" id="color" placeholder="Introduce color"></p>
 	<p>Precio: <input type="number" name="precio" id="precio" placeholder="Introduce precio"></p>
 	<p><button onclick="enviar_formulario()">Enviar</button></p>
-	<p id="resultado"><button onclick="clean()">Limpiar formulario</button></p>
+	<p id="res"><button onclick="clean()">Limpiar formulario</button></p>
 </div>
-<div id="res"></div>	
+<div id="resultado"></div>	
 	
 <script type="text/javascript" language="javascript">
 
 
 	function enviar_formulario(){
-
-	
 
 		var matricula = document.getElementById("matricula").value;
 		var marca = document.getElementById("marca").value;
@@ -35,7 +33,7 @@
 			
 			
 		var ajax = new XMLHttpRequest();/*la variable ajax es un objeto tipo XMLHttpRequest*/
-		ajax.open("POST", "datos.php", true);/*enviaremos por post los datos,al archivo php, por lo que en action del formulario ya no es necesario ponerlo y el true significa que es asincrono*/
+		ajax.open("POST", "../config/datos.php", true);/*enviaremos por post los datos,al archivo php, por lo que en action del formulario ya no es necesario ponerlo y el true significa que es asincrono*/
 		ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		ajax.send("&matricula="+matricula+"&marca="+marca+"&modelo="+modelo+"&color="+color+"&precio="+precio);/*en esta parte enviaras tus datos, en donde los que van 
 		entre comillas sera el nombre que tendra el valor del dato al que le estas concatenando, si quieres añadir mas datos tendras que poner el amperson y el nombre de la variable
@@ -102,14 +100,14 @@
 
 function genera_tabla(data) {
 
-
+if(data[0].code < 0){
+//console.log(data.length);
+var errores = resultado.innerHTML = data[0].message;
+}else{
 
   for (var i = 0; i < data.length; i++) {
 	// Crea las hileras de la tabla
-	
-	
-	
-    var hilera = document.createElement("tr");
+   var hilera = document.createElement("tr");
 
 		var celda = document.createElement("td");
 		var textoCelda = document.createTextNode(data[i].matricula);
@@ -155,11 +153,10 @@ function genera_tabla(data) {
 
   tabla.setAttribute("border", "2");
  
-  
-
+ 
+	}
+	
 }
-		
-
 
 function clean(){
 	document.getElementById("matricula").value = '';

@@ -9,10 +9,9 @@ body {
 	color:#6fd113;
 }
 #form{
-	border: solid;
-	width: 100%;
+	border:solid;
+	width: 50%;
 	height:300px;
-	
 	float: left;
 	
 }

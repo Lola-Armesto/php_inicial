@@ -66,11 +66,12 @@
 			e.preventDefault();
 					$.ajax({
 						type:"POST",
-						url: 'datos.php',
+						url: '../config/datos.php',
 						data: $("#dataform").serialize(),
 						success: function(response){
 								var jsonData = JSON.parse(response);
 								genera_tabla(jsonData);
+								
 							
 						}
 						
@@ -79,7 +80,15 @@
 
 		});
 		});	
+		
+
+		
 		function genera_tabla(data) {
+			if(data[0].code < 0){
+				console.log(data.length);
+				resultado.innerHTML = data[0].message;
+
+			}else{
 
 				// Obtener la referencia del elemento body
 		var body = document.getElementsByTagName("body")[0];
@@ -161,6 +170,7 @@
 		tabla.setAttribute("border", "2");
 
 		}
+	}
 		function clean(){
 			document.getElementById("matricula").value = '';
 			document.getElementById("marca").value = '';
